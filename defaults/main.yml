@@ -10,6 +10,7 @@ openvpn_use_external_repo: false                    # Enable upstream OpenVPN re
 openvpn_use_system_easyrsa: false                   # Install EasyRSA from system packages
 
 # Default settings (See OpenVPN documentation)
+openvpn_interface: "eth0"
 openvpn_host: "{{inventory_hostname}}"              # The server address
 openvpn_port: 1194
 openvpn_proto: udp
@@ -45,6 +46,12 @@ openvpn_key_city: SanFrancisco
 openvpn_key_org: Fort-Funston
 openvpn_key_email: me@myhost.mydomain
 openvpn_key_size: 1024
+
+openvpn_push_routes: false
+openvpn_routes: []                                # Example:
+                                                  # openvpn_routes:
+                                                  # - "10.0.1.0 255.255.255.0"
+                                                  # - "10.0.2.0 255.255.255.0"
 
 openvpn_clients: [client]                         # Make clients certificate
 openvpn_clients_revoke: []                        # Revoke clients certificates

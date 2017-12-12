@@ -102,6 +102,13 @@ comp-lzo
 ;comp-lzo
 {% endif %}
 
+{% if openvpn_push_routes -%}
+{% for route in openvpn_routes %}
+push "route {{route}}"
+{% endfor %}
+{% endif %}
+
+
 # The persist options will try to avoid accessing certain resources on restart
 # that may no longer be accessible because of the privilege downgrade.
 persist-key
