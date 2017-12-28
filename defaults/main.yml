@@ -77,3 +77,4 @@ openvpn_unified_client_profiles: no
 openvpn_download_clients: no
 openvpn_download_dir: "client_credentials"
 
+authy_enabled: false

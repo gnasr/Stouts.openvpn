@@ -175,3 +175,7 @@ script-security 3 execve
 {% if crl_pem_file.stat.exists %}
 crl-verify {{openvpn_keydir}}/crl.pem
 {% endif %}
+
+{% if authy_enabled %}
+plugin /usr/lib/authy/authy-openvpn.so https://api.authy.com/protected/json {{authy_api_key}} nopam
+{% endif %}

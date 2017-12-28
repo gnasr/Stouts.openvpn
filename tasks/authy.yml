@@ -1,0 +1,33 @@
+---
+
+- name: Create authy plugin dir
+  file:
+    path: /usr/lib/authy
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install authy plugin
+  copy:
+    src: "{{role_path}}/files/authy-openvpn.so"
+    dest: /usr/lib/authy/authy-openvpn.so
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create authy conf dir
+  file:
+    path: /etc/openvpn/authy
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create authy conf file
+  template: 
+    src: authy-vpn.conf.j2
+    dest: /etc/openvpn/authy/authy-vpn.conf
+    owner: root
+    group: root
+    mode: 0600
