@@ -30,4 +30,4 @@
     dest: /etc/openvpn/authy/authy-vpn.conf
     owner: root
     group: root
-    mode: 0600
+    mode: 0755
