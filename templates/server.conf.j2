@@ -176,6 +176,12 @@ script-security 3 execve
 crl-verify {{openvpn_keydir}}/crl.pem
 {% endif %}
 
+{% if bind_enabled %}
+script-security 2
+push "dhcp-option DNS {{ ansible_eth0.ipv4.address }}"
+{% endif %}
+
 {% if authy_enabled %}
+reneg-sec 0
 plugin /usr/lib/authy/authy-openvpn.so https://api.authy.com/protected/json {{authy_api_key}} nopam
 {% endif %}

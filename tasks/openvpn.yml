@@ -25,5 +25,8 @@
 - include: authy.yml
   when: authy_enabled
 
+- include: bind.yml
+  when: bind_enabled
+
 - name: Ensure OpenVPN is started
   service: name={{openvpn_service}} state=started enabled=yes

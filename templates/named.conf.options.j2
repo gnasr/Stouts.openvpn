@@ -1,0 +1,17 @@
+options {
+    directory "/var/cache/bind";
+    recursion yes;
+    allow-query { trusted; };
+
+    forwarders {
+      {{ vpc_nameserver }};
+     };
+
+    forward only;
+
+    dnssec-enable no;
+    dnssec-validation no;
+    dnssec-lookaside auto;
+    auth-nxdomain no;
+    listen-on-v6 { any; };
+};

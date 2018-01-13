@@ -6,9 +6,9 @@ openvpn_etcdir: /etc/openvpn
 openvpn_keydir: "{{openvpn_etcdir}}/keys"
 
 # Installation settings
-openvpn_use_external_repo: false                    # Enable upstream OpenVPN repository
-openvpn_use_system_easyrsa: false                   # Install EasyRSA from system packages
-
+openvpn_use_external_repo: no                       # Enable upstream OpenVPN repository
+openvpn_use_system_easyrsa: no                      # Install EasyRSA from system packages
+ 
 # Default settings (See OpenVPN documentation)
 openvpn_interface: "eth0"
 openvpn_host: "{{inventory_hostname}}"              # The server address
@@ -25,7 +25,7 @@ openvpn_comp_lzo: yes                               # Enable compression
 openvpn_cipher: BF-CBC                              # Encryption algorithm
 openvpn_status: openvpn-status.log
 openvpn_verb: 3
-openvpn_tls_auth : False                            # Enable perfect forward secracyxy
+openvpn_tls_auth : no                               # Enable perfect forward secracyxy
 openvpn_tls_key  : "ta.key"
 openvpn_user: nobody
 openvpn_group: nogroup
@@ -47,7 +47,7 @@ openvpn_key_org: Fort-Funston
 openvpn_key_email: me@myhost.mydomain
 openvpn_key_size: 1024
 
-openvpn_push_routes: false
+openvpn_push_routes: no
 openvpn_routes: []                                # Example:
                                                   # openvpn_routes:
                                                   # - "10.0.1.0 255.255.255.0"
@@ -77,4 +77,11 @@ openvpn_unified_client_profiles: no
 openvpn_download_clients: no
 openvpn_download_dir: "client_credentials"
 
-authy_enabled: false
+# Enable authy 
+authy_enabled: no
+
+# Enable internal dns (for aws private zone resolution)
+bind_enabled: no
+bind_acl: "0.0.0.0/0"
+vpc_nameserver: 10.0.0.2                          # This is a dummy value, VPC nameserver is always the second ip of your
+                                                  # VPC, e.g if your vpc is 10.0.0.0/16 the second IP is 10.0.0.2
