@@ -85,3 +85,6 @@ bind_enabled: no
 bind_acl: "0.0.0.0/0"
 vpc_nameserver: 10.0.0.2                          # This is a dummy value, VPC nameserver is always the second ip of your
                                                   # VPC, e.g if your vpc is 10.0.0.0/16 the second IP is 10.0.0.2
+extra_dns:                                        # If bind_enable: yes, dns will be pushed on client.conf here you can add
+  - 8.8.8.8                                       # extra dns servers to be pushed
+  - 8.8.4.4                                                  

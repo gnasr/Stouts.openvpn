@@ -178,6 +178,9 @@ crl-verify {{openvpn_keydir}}/crl.pem
 
 {% if bind_enabled %}
 script-security 2
+{% for dns in extra_dns %}
+push "dhcp-option DNS {{dns}}"
+{% endfor %}
 push "dhcp-option DNS {{ ansible_eth0.ipv4.address }}"
 {% endif %}
 

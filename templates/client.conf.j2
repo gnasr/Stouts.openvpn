@@ -89,6 +89,10 @@ verb {{openvpn_verb}}
 auth-user-pass
 {% endif %}
 
+{% if bind_enabled %}
+script-security 2
+{% endif %}
+
 {% for option in openvpn_client_options %}
 {{option}}
 {% endfor %}

@@ -1,7 +1,10 @@
 options {
     directory "/var/cache/bind";
     recursion yes;
-    allow-query { trusted; };
+    
+    allow-query { 
+      trusted;
+    };
 
     forwarders {
       {{ vpc_nameserver }};
