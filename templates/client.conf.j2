@@ -93,6 +93,11 @@ auth-user-pass
 script-security 2
 {% endif %}
 
+{% if authy_enabled %}
+reneg-sec 0
+{% endif %}
+
 {% for option in openvpn_client_options %}
 {{option}}
 {% endfor %}
+
